@@ -1,7 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LojaLanche.Model
+namespace LojaLanche.Core.Model.Pedido
 {
     public class PedidoDetalhe
     {

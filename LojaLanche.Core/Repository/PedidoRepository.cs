@@ -1,9 +1,10 @@
-﻿using LojaLanche.Context;
+﻿using LojaLanche.Core.Context;
+using LojaLanche.Core.Model.Carrinho;
+using LojaLanche.Core.Model.Pedido;
+using LojaLanche.Core.Repository.Generic;
 using LojaLanche.Interface.Repository;
-using LojaLanche.Model;
-using LojaLanche.Repository.Generic;
 
-namespace LojaLanche.Repository
+namespace LojaLanche.Core.Repository
 {
     public class PedidoRepository : GenericRepository<Pedido, int>, IPedidoRepository
     {

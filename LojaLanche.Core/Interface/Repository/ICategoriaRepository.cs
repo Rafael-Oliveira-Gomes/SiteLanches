@@ -1,4 +1,4 @@
-﻿using LojaLanche.Model;
+﻿using LojaLanche.Core.Model;
 
 namespace LojaLanche.Interface.Repository
 {

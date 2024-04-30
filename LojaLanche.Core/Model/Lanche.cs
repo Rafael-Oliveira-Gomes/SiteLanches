@@ -1,4 +1,4 @@
-﻿namespace LojaLanche.Model
+﻿namespace LojaLanche.Core.Model
 {
     public class Lanche
     {

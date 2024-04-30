@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore;
-using LojaLanche.Context;
 using LojaLanche.Interface.Repository.Generic;
+using LojaLanche.Core.Context;
 
-namespace LojaLanche.Repository.Generic
+namespace LojaLanche.Core.Repository.Generic
 {
     public class GenericRepository<T, TKey> : IGenericRepository<T, TKey> where T : class where TKey : struct
     {

@@ -1,11 +1,15 @@
-﻿using LojaLanche.Model;
+﻿using LojaLanche.Core.Model;
+using LojaLanche.Core.Model.Auth.Role;
+using LojaLanche.Core.Model.Auth.User;
+using LojaLanche.Core.Model.Carrinho;
+using LojaLanche.Core.Model.Pedido;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace LojaLanche.Context
+namespace LojaLanche.Core.Context
 {
-    public class AppDbContext : IdentityDbContext<IdentityUser>
+    public class AppDbContext : IdentityDbContext<UserBase, ApplicationRole, int>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         { }

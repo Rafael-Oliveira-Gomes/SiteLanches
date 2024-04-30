@@ -1,7 +1,17 @@
+using LojaLanche.Config;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+// Add conection to Database
+string mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection")!;
+builder.Services.ConfigDatabase(mySqlConnection);
+builder.Services.UpdateMigrationDatabase();
+
+builder.Services.ConfigAuth(builder);
 
 var app = builder.Build();
 

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace LojaLanche.Model
+namespace LojaLanche.Core.Model
 {
     public class Categoria
     {

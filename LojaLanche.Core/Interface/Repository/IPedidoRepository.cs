@@ -1,5 +1,5 @@
-﻿using LojaLanche.Interface.Repository.Generic;
-using LojaLanche.Model;
+﻿using LojaLanche.Core.Model.Pedido;
+using LojaLanche.Interface.Repository.Generic;
 
 namespace LojaLanche.Interface.Repository
 {
