@@ -1,6 +1,6 @@
 ﻿using LojaLanche.Model;
 
-namespace LojaLanche.Interface
+namespace LojaLanche.Interface.Repository
 {
     public interface ICategoriaRepository
     {

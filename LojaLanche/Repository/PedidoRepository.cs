@@ -1,57 +1,48 @@
 ﻿using LojaLanche.Context;
-using LojaLanche.Interface;
+using LojaLanche.Interface.Repository;
 using LojaLanche.Model;
-using Microsoft.EntityFrameworkCore;
+using LojaLanche.Repository.Generic;
 
 namespace LojaLanche.Repository
 {
-    public class PedidoRepository : IPedidoRepository
+    public class PedidoRepository : GenericRepository<Pedido, int>, IPedidoRepository
     {
-        private readonly AppDbContext _appDbContext;
-        private readonly CarrinhoCompra _carrinhoCompra;
+        private readonly AppDbContext _context;
+        //private readonly CarrinhoCompra _carrinhoCompra;
 
-        public PedidoRepository(AppDbContext appDbContext, CarrinhoCompra carrinhoCompra)
+        public PedidoRepository(AppDbContext context, CarrinhoCompra carrinhoCompra): base(context)
         {
-            _appDbContext = appDbContext;
-            _carrinhoCompra = carrinhoCompra;
-        }
-
-        public Pedido GetPedidoById(int pedidoId)
-        {
-            var pedido = _appDbContext.Pedidos.Include(pd => pd.PedidoItens
-                         .Where(pd => pd.PedidoId == pedidoId))
-                         .FirstOrDefault(p => p.PedidoId == pedidoId);
-
-            return pedido;
+            _context = context;
+            //_carrinhoCompra = carrinhoCompra;
         }
 
         public List<Pedido> GetPedidos()
         {
-            return _appDbContext.Pedidos.ToList();
+            return _context.Pedidos.ToList();
         }
 
-        public void CriarPedido(Pedido pedido)
-        {
-            pedido.PedidoEnviado = DateTime.Now;
-            //pedido.PedidoEntregueEm = DateTime.Now;
+        //public void CriarPedido(Pedido pedido)
+        //{
+        //    pedido.PedidoEnviado = DateTime.Now;
+        //    //pedido.PedidoEntregueEm = DateTime.Now;
 
-            _appDbContext.Pedidos.Add(pedido);
-            _appDbContext.SaveChanges();
+        //    _context.Pedidos.Add(pedido);
+        //    _context.SaveChanges();
 
-            var carrinhoCompraItens = _carrinhoCompra.CarrinhoCompraItens;
+        //    //var carrinhoCompraItens = _carrinhoCompra.CarrinhoCompraItens;
 
-            foreach (var carrinhoItem in carrinhoCompraItens)
-            {
-                var pedidoDetail = new PedidoDetalhe()
-                {
-                    Quantidade = carrinhoItem.Quantidade,
-                    LancheId = carrinhoItem.Lanche.LancheId,
-                    PedidoId = pedido.PedidoId,
-                    Preco = carrinhoItem.Lanche.Preco
-                };
-                _appDbContext.PedidoDetalhes.Add(pedidoDetail);
-            }
-            _appDbContext.SaveChanges();
-        }
+        //    //foreach (var carrinhoItem in carrinhoCompraItens)
+        //    //{
+        //    //    var pedidoDetail = new PedidoDetalhe()
+        //    //    {
+        //    //        Quantidade = carrinhoItem.Quantidade,
+        //    //        LancheId = carrinhoItem.Lanche.LancheId,
+        //    //        PedidoId = pedido.PedidoId,
+        //    //        Preco = carrinhoItem.Lanche.Preco
+        //    //    };
+        //    //    _appDbContext.PedidoDetalhes.Add(pedidoDetail);
+        //    //}
+        //    //_appDbContext.SaveChanges();
+        //}
     }
 }
