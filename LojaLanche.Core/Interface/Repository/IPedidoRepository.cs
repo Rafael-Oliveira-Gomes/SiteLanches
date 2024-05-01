@@ -1,4 +1,4 @@
-﻿using LojaLanche.Core.Model.Pedido;
+﻿using LojaLanche.Data.Model;
 using LojaLanche.Interface.Repository.Generic;
 
 namespace LojaLanche.Interface.Repository

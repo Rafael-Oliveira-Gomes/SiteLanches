@@ -1,7 +1,7 @@
-﻿using LojaLanche.Core.Model.Auth.User;
+﻿using LojaLanche.Data.Model.Auth.User;
 using LojaLanche.Interface.Repository.Generic;
 
-namespace LojaLanche.Core.Interface
+namespace LojaLanche.Core.Interface.Repository
 {
     public interface IUserRepository : IGenericRepository<ApplicationUser, int>
     {

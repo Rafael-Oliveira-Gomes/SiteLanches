@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace LojaLanche.Core.Model.Enum
+namespace LojaLanche.Data.Model.Enum
 {
-    internal enum TipeEnum
+    public enum TipoEnum
     {
         [Description("None")]
         None = 0,

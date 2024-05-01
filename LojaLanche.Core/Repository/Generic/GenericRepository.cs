@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore;
 using LojaLanche.Interface.Repository.Generic;
-using LojaLanche.Core.Context;
+using LojaLanche.Data.Context;
 
 namespace LojaLanche.Core.Repository.Generic
 {
@@ -69,6 +69,11 @@ namespace LojaLanche.Core.Repository.Generic
         public virtual IQueryable<T> Query()
         {
             return _context.Set<T>().AsNoTracking();
+        }
+
+        public virtual IQueryable<T> ListAll()
+        {
+            return _context.Set<T>().AsQueryable();
         }
     }
 }

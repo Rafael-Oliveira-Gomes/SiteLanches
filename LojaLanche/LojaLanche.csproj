@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LojaLanche.Core\LojaLanche.Core.csproj" />
+    <ProjectReference Include="..\LojaLanche.Data\LojaLanche.Data.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace LojaLanche.Core.Model.Auth.User
+namespace LojaLanche.Data.Model.Auth.User
 {
     public class UserBase : IdentityUser<int>
     {

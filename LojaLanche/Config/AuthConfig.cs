@@ -1,4 +1,4 @@
-﻿using LojaLanche.Core.Model.Auth.Role;
+﻿using LojaLanche.Data.Model.Auth.Role;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
@@ -63,14 +63,14 @@ namespace LojaLanche.Config
                 Console.WriteLine($"Ocorreu um erro: {ex.Message}");
             }
         }
-        public static async Task AddAdminRole(this IServiceScope scope)
+        public static async Task AddFuncionarioRole(this IServiceScope scope)
         {
             try
             {
                 // Obter o serviço de gerenciamento de roles
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
 
-                // Verificar se a role "Admin" já existe
+                // Verificar se a role "Funcionario" já existe
                 var funcionarioRoleExists = await roleManager.RoleExistsAsync("Funcionario");
 
                 if (!funcionarioRoleExists)

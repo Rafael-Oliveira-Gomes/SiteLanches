@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LojaLanche.Core.Model.Auth.User
+﻿namespace LojaLanche.Data.Model.Auth.User
 {
     public class ApplicationUser : UserBase
     {

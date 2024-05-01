@@ -1,4 +1,5 @@
 using LojaLanche.Config;
+using LojaLanche.Config.Ioc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,10 @@ builder.Services.ConfigDatabase(mySqlConnection);
 builder.Services.UpdateMigrationDatabase();
 
 builder.Services.ConfigAuth(builder);
+
+// Add IOC
+builder.Services.ConfigRepositoryIoc();
+builder.Services.ConfigServiceIoc();
 
 var app = builder.Build();
 
@@ -31,6 +36,7 @@ app.UseRouting();
 using (var scope = app.Services.CreateScope())
 {
     await scope.AddAdminRole();
+    await scope.AddFuncionarioRole();
 }
 
 app.UseAuthorization();

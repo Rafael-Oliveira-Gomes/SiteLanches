@@ -1,6 +1,4 @@
-﻿using LojaLanche.Core.Context;
-using LojaLanche.Core.Interface;
-using LojaLanche.Core.Model.Auth.User;
+﻿using LojaLanche.Data.Context;
 using LojaLanche.Core.Repository.Generic;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LojaLanche.Core.Interface.Repository;
+using LojaLanche.Data.Model.Auth.User;
 
 namespace LojaLanche.Core.Repository
 {

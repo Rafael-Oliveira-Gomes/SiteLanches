@@ -1,6 +1,6 @@
-﻿using LojaLanche.Core.Context;
-using LojaLanche.Core.Model.Auth.Role;
-using LojaLanche.Core.Model.Auth.User;
+﻿using LojaLanche.Data.Context;
+using LojaLanche.Data.Model.Auth.Role;
+using LojaLanche.Data.Model.Auth.User;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
