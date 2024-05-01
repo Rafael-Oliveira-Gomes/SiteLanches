@@ -697,3 +697,7 @@ FodyWeavers.xsd
 # End of https://www.toptal.com/developers/gitignore/api/dotnetcore,visualstudio,visualstudiocode,macos,angular,node,intellij
 /.vs/LojaLanche/v17/.suo
 /.vs/LojaLanche/DesignTimeBuild/.dtbcache.v2
+/LojaLanche/obj/project.assets.json
+/LojaLanche/obj/LojaLanche.csproj.nuget.dgspec.json
+/LojaLanche/obj/LojaLanche.csproj.nuget.g.targets
+/LojaLanche/obj/project.nuget.cache
