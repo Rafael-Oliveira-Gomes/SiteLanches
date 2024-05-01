@@ -1,4 +1,7 @@
-﻿using LojaLanche.Core.Dto;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using LojaLanche.Core.Dto;
 using LojaLanche.Core.Interface.Command;
 using LojaLanche.Core.Interface.Service;
 using LojaLanche.Data.Model;
@@ -24,6 +27,10 @@ namespace LojaLanche.Core.Command
 
                 return ResponseCommon<bool>.Sucesso(ret);
             }
+            catch (ArgumentException ex)
+            {
+                return ResponseCommon<bool>.Falha(ex.Message, 400);
+            }
             catch (Exception ex)
             {
                 return ResponseCommon<bool>.Falha(ex.Message);
@@ -38,6 +45,10 @@ namespace LojaLanche.Core.Command
                 SsoDto ssoDTO = await _authService.SignIn(signInDTO);
 
                 return ResponseCommon<SsoDto>.Sucesso(ssoDTO);
+            }
+            catch (ArgumentException ex)
+            {
+                return ResponseCommon<SsoDto>.Falha(ex.Message, 400);
             }
             catch (Exception ex)
             {
@@ -54,6 +65,10 @@ namespace LojaLanche.Core.Command
 
                 return ResponseCommon<bool>.Sucesso(true);
             }
+            catch (ArgumentException ex)
+            {
+                return ResponseCommon<bool>.Falha(ex.Message, 400);
+            }
             catch (Exception ex)
             {
                 return ResponseCommon<bool>.Falha(ex.Message);
@@ -67,6 +82,10 @@ namespace LojaLanche.Core.Command
                 var currentUser = await _authService.GetCurrentUser();
 
                 return ResponseCommon<UserBase>.Sucesso(currentUser);
+            }
+            catch (ArgumentException ex)
+            {
+                return ResponseCommon<UserBase>.Falha(ex.Message, 400);
             }
             catch (Exception ex)
             {
@@ -83,6 +102,10 @@ namespace LojaLanche.Core.Command
 
                 return ResponseCommon<List<ApplicationUser>>.Sucesso(list);
             }
+            catch (ArgumentException ex)
+            {
+                return ResponseCommon<List<ApplicationUser>>.Falha(ex.Message, 400);
+            }
             catch (Exception ex)
             {
                 return ResponseCommon<List<ApplicationUser>>.Falha(ex.Message);
@@ -97,6 +120,10 @@ namespace LojaLanche.Core.Command
                 UserDto userDto = await _authService.GetUserDto(id);
 
                 return ResponseCommon<UserDto>.Sucesso(userDto);
+            }
+            catch (ArgumentException ex)
+            {
+                return ResponseCommon<UserDto>.Falha(ex.Message, 400);
             }
             catch (Exception ex)
             {
