@@ -16,10 +16,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Data\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <ProjectReference Include="..\LojaLanche.Data\LojaLanche.Data.csproj" />
 	</ItemGroup>
 </Project>
