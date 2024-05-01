@@ -16,8 +16,8 @@ namespace LojaLanche.Core.Dto
         [Required(ErrorMessage = "Password is required")]
         public required string Password { get; set; }
 
-        [Required(ErrorMessage = "Password is required")]
-        public required string PasswordConfirm { get; set; }
+        [Required(ErrorMessage = "Confirm password is required")]
+        public required string ConfirmPassword { get; set; }
 
         [Required(ErrorMessage = "PhoneNumber is required")]
         public required string PhoneNumber { get; set; }

@@ -21,7 +21,7 @@ builder.Services.ConfigCommandIoc();
 builder.Services.AddControllersWithViews(options =>
 {
     // Adiciona o filtro de exceção personalizado globalmente
-    options.Filters.Add(new CustomExceptionFilterAttribute());
+    //options.Filters.Add(new CustomExceptionFilterAttribute());
 });
 
 var app = builder.Build();

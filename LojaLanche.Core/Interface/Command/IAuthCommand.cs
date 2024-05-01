@@ -4,7 +4,7 @@ using LojaLanche.Data.Model.Auth.User;
 
 namespace LojaLanche.Core.Interface.Command
 {
-    public interface IAuthController
+    public interface IAuthCommand
     {
         Task<ResponseCommon<bool>> AddUserToAdminRole(int userId);
         Task<ResponseCommon<UserBase>> GetCurrentUser();

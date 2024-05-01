@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace LojaLanche.Core.Command
 {
-    public class AuthController : IAuthController
+    public class AuthCommand : IAuthCommand
     {
         private readonly IAuthService _authService;
 
-        public AuthController(IAuthService authService)
+        public AuthCommand(IAuthService authService)
         {
             _authService = authService;
         }

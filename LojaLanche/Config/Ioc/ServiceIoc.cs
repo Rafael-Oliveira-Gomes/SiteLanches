@@ -8,6 +8,7 @@ namespace LojaLanche.Config.Ioc
         public static void ConfigServiceIoc(this IServiceCollection services)
         {
             services.AddScoped<IProdutoService, ProdutoService>();
+            services.AddScoped<IAuthService, AuthService>();
         }
     }
 }
