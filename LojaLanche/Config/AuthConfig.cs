@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using LojaLanche.Core.Model.Auth.Role;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -32,6 +34,62 @@ namespace LojaLanche.Config
                     ValidateLifetime = true
                 };
             });
+        }
+        public static async Task AddAdminRole(this IServiceScope scope)
+        {
+            try
+            {
+                // Obter o serviço de gerenciamento de roles
+                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
+
+                // Verificar se a role "Admin" já existe
+                var adminRoleExists = await roleManager.RoleExistsAsync("Admin");
+
+                if (!adminRoleExists)
+                {
+                    // Criar uma nova instância da classe "ApplicationRole"
+                    var adminRole = new ApplicationRole
+                    {
+                        Name = "Admin",
+                        NormalizedName = "ADMIN"
+                    };
+
+                    // Criar a role "Admin"
+                    await roleManager.CreateAsync(adminRole);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ocorreu um erro: {ex.Message}");
+            }
+        }
+        public static async Task AddAdminRole(this IServiceScope scope)
+        {
+            try
+            {
+                // Obter o serviço de gerenciamento de roles
+                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
+
+                // Verificar se a role "Admin" já existe
+                var funcionarioRoleExists = await roleManager.RoleExistsAsync("Funcionario");
+
+                if (!funcionarioRoleExists)
+                {
+                    // Criar uma nova instância da classe "ApplicationRole"
+                    var funcionarioRole = new ApplicationRole
+                    {
+                        Name = "Funcionario",
+                        NormalizedName = "FUNCIONARIO"
+                    };
+
+                    // Criar a role "Admin"
+                    await roleManager.CreateAsync(funcionarioRole);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ocorreu um erro: {ex.Message}");
+            }
         }
     }
 }

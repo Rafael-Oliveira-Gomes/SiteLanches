@@ -13,6 +13,8 @@ namespace LojaLanche.Core.Context
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         { }
+        public DbSet<ApplicationUser> User { get; set; } = null!;
+        public DbSet<ApplicationRole> Role { get; set; } = null!;
         public DbSet<Lanche> Lanches { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<CarrinhoCompraItem> CarrinhoCompraItens { get; set; }

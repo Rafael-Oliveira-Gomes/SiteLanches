@@ -28,6 +28,11 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+using (var scope = app.Services.CreateScope())
+{
+    await scope.AddAdminRole();
+}
+
 app.UseAuthorization();
 
 app.MapRazorPages();

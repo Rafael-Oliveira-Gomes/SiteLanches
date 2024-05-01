@@ -1,7 +1,7 @@
 ﻿using LojaLanche.Core.Context;
+using LojaLanche.Core.Interface.Repository;
 using LojaLanche.Core.Model;
 using LojaLanche.Core.Repository.Generic;
-using LojaLanche.Interface.Repository;
 using Microsoft.EntityFrameworkCore;
 
 namespace LojaLanche.Core.Repository
