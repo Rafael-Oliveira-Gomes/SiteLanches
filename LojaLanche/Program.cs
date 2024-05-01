@@ -18,15 +18,19 @@ builder.Services.ConfigRepositoryIoc();
 builder.Services.ConfigServiceIoc();
 builder.Services.ConfigCommandIoc();
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(options =>
+{
+    // Adiciona o filtro de exceção personalizado globalmente
+    options.Filters.Add(new CustomExceptionFilterAttribute());
+});
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseExceptionHandler("/Home/Erro"); // Middleware para tratamento de erros
+    app.UseStatusCodePagesWithRedirects("/Home/Index"); // Middleware para redirecionamento de páginas não encontradas
     app.UseHsts();
 }
 

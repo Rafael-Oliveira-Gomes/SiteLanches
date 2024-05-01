@@ -1,5 +1,4 @@
 ﻿using LojaLanche.Core.Interface.Command;
-using LojaLanche.Data.Model;
 using LojaLanche.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,6 +32,10 @@ namespace LojaLanche.Controllers
             }
             // Se estiver no intervalo, passa os dados para a view
             return View(viewModel);
+        }
+        public IActionResult SimularErro()
+        {
+            throw new Exception("Isso é apenas um erro de simulação!");
         }
     }
 }
