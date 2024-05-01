@@ -40,7 +40,7 @@ namespace LojaLanche.Core.Service
             return await _repository.GetByIdAsync(id);
         }
 
-        public async Task<Produto> UpdateProdutoAsync(Produto produto)
+        public async Task<Produto?> UpdateProdutoAsync(Produto produto)
         {
             var existingProduto = await _repository.GetByIdAsync(produto.Id);
             if (existingProduto == null)
@@ -48,7 +48,8 @@ namespace LojaLanche.Core.Service
 
             existingProduto.Nome = produto.Nome;
             existingProduto.Preco = produto.Preco;
-            // Atualize outras propriedades conforme necessário
+            existingProduto.Tipo = produto.Tipo;
+            existingProduto.Ativo = produto.Ativo;
 
             await _repository.UpdateAsync(existingProduto);
             return existingProduto;
