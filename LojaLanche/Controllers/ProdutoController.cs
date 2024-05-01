@@ -12,7 +12,7 @@ namespace LojaLanche.Controllers
             _produtoCommand = produtoCommand;
         }
 
-        [HttpGet("/")]
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var produtos = await _produtoCommand.GetAllProdutos();

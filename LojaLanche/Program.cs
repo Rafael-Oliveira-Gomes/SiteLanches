@@ -1,6 +1,5 @@
-using LojaLanche.Config;
 using LojaLanche.Config.Ioc;
-using Microsoft.EntityFrameworkCore;
+using LojaLanche.Config;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,6 +40,11 @@ using (var scope = app.Services.CreateScope())
 
 app.UseAuthorization();
 
-app.MapRazorPages();
+app.UseEndpoints(endpoints =>
+{
+    _ = endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+});
 
 app.Run();

@@ -1,39 +1,57 @@
 ﻿using LojaLanche.Core.Interface.Repository;
 using LojaLanche.Core.Interface.Service;
 using LojaLanche.Data.Model;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace LojaLanche.Core.Service
 {
     public class ProdutoService : IProdutoService
     {
-        private IProdutoRepository _repository;
-        public ProdutoService(IProdutoRepository repository) 
+        private readonly IProdutoRepository _repository;
+
+        public ProdutoService(IProdutoRepository repository)
         {
             _repository = repository;
         }
+
         public async Task<Produto> CreateProdutoAsync(Produto produto)
         {
-            throw new NotImplementedException();
+            return await _repository.CreateAsync(produto);
         }
 
         public async Task<bool> DeleteProdutoAsync(int id)
         {
-            throw new NotImplementedException();
+            var produto = await _repository.GetByIdAsync(id);
+            if (produto == null)
+                return false;
+
+            return await _repository.DeleteAsync(produto);
         }
 
         public async Task<List<Produto>> GetAllProdutosAsync()
         {
-            throw new NotImplementedException();
+            return await _repository.ListAll().ToListAsync();
         }
 
         public async Task<Produto> GetProdutoByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _repository.GetByIdAsync(id);
         }
 
         public async Task<Produto> UpdateProdutoAsync(Produto produto)
         {
-            throw new NotImplementedException();
+            var existingProduto = await _repository.GetByIdAsync(produto.Id);
+            if (existingProduto == null)
+                return null;
+
+            existingProduto.Nome = produto.Nome;
+            existingProduto.Preco = produto.Preco;
+            // Atualize outras propriedades conforme necessário
+
+            await _repository.UpdateAsync(existingProduto);
+            return existingProduto;
         }
     }
 }

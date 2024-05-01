@@ -13,5 +13,6 @@ namespace LojaLanche.Data.Model
         public bool Ativo {  get; set; }
         public TipoEnum Tipo { get; set; }
         public string? Marca { get; set; }
+        public decimal Preco { get; set; }
     }
 }
