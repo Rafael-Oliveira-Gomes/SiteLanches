@@ -1,4 +1,5 @@
-﻿using LojaLanche.Data.Model;
+﻿using LojaLanche.Core.Util;
+using LojaLanche.Data.Model;
 
 namespace LojaLanche.ViewModel
 {
@@ -6,12 +7,15 @@ namespace LojaLanche.ViewModel
     {
         public ProdutoViewModel(Produto produto) 
         {
-            Id = produto.Id.ToString();
+            Descricao = produto.Descricao.ToString();
             Nome = produto.Nome;
             Preco = produto.Preco.ToString("R$x.xx");
+            Tipo = produto.Tipo.GetEnumDescription();
         }
-        public string? Id {  get; set; }
         public string? Nome { get; set; }
+        public string? Descricao {  get; set; }
         public string? Preco { get; set; }
+        public string? Tipo { get; set; }
+
     }
 }

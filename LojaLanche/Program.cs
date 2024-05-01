@@ -34,7 +34,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+app.UseHttpsRedirection(); // Redireciona todas as solicitacoes HTTP para HTTPS
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -45,6 +45,7 @@ using (var scope = app.Services.CreateScope())
     await scope.AddFuncionarioRole();
 }
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
