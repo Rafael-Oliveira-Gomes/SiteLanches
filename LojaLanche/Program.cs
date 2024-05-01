@@ -16,6 +16,9 @@ builder.Services.ConfigAuth(builder);
 // Add IOC
 builder.Services.ConfigRepositoryIoc();
 builder.Services.ConfigServiceIoc();
+builder.Services.ConfigCommandIoc();
+
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
